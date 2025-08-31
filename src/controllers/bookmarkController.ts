@@ -5,7 +5,6 @@ import { isUrlValid } from '../utils/helperMethods.js'
 export async function addBookmark(req: Request, res:Response){
     try{
         const {title, url} = req.body
-        if(!isUrlValid(url)) return res.status(400).json({message: 'Invalid URL format. Please provide a valid URL.', enteredUrl: url})
         const bookmark = await bookmarkService.createBookmark(title,url)
         res.status(201).json({
             message: 'Bookmark added successfully',
@@ -24,7 +23,6 @@ export async function modifyBookmark(req:Request, res:Response){
     try{
         const id = Number(req.params.id)
         const body = req.body
-        if(!isUrlValid(body.url)) return res.status(400).json({message: 'Invalid URL format. Please provide a valid URL.', enteredUrl: body.url})
         const modifiedBookmark = await bookmarkService.modifyBookmark(id,body)
         res.status(200).json({
             message: 'Bookmark modified successfully',
