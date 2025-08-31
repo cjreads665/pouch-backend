@@ -1,5 +1,7 @@
 import prisma from "../db/prisma.js";
 
+
+
 export async function createBookmark(title:string,url:string){
     return prisma.bookmark.create({
         data: {
