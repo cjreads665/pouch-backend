@@ -104,3 +104,9 @@ In `nodemon.json`:
 ```
 
 This gives you **auto-reload + ESM + TypeScript** without pre-compiling.  
+
+
+# Prisma
+Prisma is an ORM which is basically a layer that allows us to create, manage and manipulate data base. It allows us to do that using methods instead of writing raw SQL queries.
+ We can create tables, edit them using the prisma schema.
+ So when you make any change in schema file for prisma, we can run migrations which will modify the tables/database as per the format you have given i nthe schema file.
