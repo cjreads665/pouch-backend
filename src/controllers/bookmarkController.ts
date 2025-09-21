@@ -4,6 +4,7 @@ import { isUrlValid } from '../utils/helperMethods.js'
 
 export async function addBookmark(req: Request, res:Response){
     try{
+        console.log("PUT request received:", req.params, req.body);
         const {title, url} = req.body
         const bookmark = await bookmarkService.createBookmark(title,url)
         res.status(201).json({
