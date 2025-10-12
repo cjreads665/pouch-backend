@@ -6,7 +6,8 @@ export async function createBookmark(title:string,url:string){
     return prisma.bookmark.create({
         data: {
             title,
-            url
+            url,
+            userId: 1 // Temporary hardcoded userId for demonstration purposes
         }
     })
 }
@@ -21,7 +22,7 @@ export async function modifyBookmark(id:number, data: {title?:string, url?:strin
 export async function getAllBookmarks(order:"asc" | "desc" = "desc") {
     return prisma.bookmark.findMany({
         orderBy: {
-            updated_at: order
+            updatedAt: order
         },
     })
 }
