@@ -3,6 +3,7 @@ import type {Application} from 'express'
 import cors from 'cors'
 import articleRoute from './routes/articleRoute.js'
 import bookmarkRoute from './routes/bookmarkRoute.js'
+import authRoute from './routes/authRoute.js'
 const app:Application = express()
 const PORT = process.env.PORT || 3000
 
@@ -14,6 +15,8 @@ app.use(express.json())
 app.use('/api/extract',articleRoute)
 
 app.use('/api/bookmarks', bookmarkRoute)
+
+app.use('/api/auth', authRoute)
 
 app.listen(PORT,()=>{
     console.log(`Server is running on http://localhost:${PORT}`);
